@@ -1,4 +1,4 @@
-const { listarTransacoes, adicionarTransacao } = require('../models/transacaoModels');
+const { listarTransacoes, adicionarTransacao, calcularEstatistica } = require('../models/transacaoModels');
 
 const getTransacoes = (req, res) => (
     res.json(listarTransacoes())
@@ -24,7 +24,16 @@ const postTransacoes = (req, res) => {
 
 }
 
-module.exports = {getTransacoes, postTransacoes}
+const deletarTransacoes = (req, res) => {
+    deletarTransacoes();
+    res.status(204).send();
+};
+
+const getEstatistica = (req, res) => {
+    res.json(getEstatistica())
+}
+
+module.exports = {getTransacoes, postTransacoes, deletarTransacoes, getEstatistica}
 
 
 
